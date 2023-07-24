@@ -16,6 +16,7 @@
 		F620B8B92A616446006FCD77 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F620B8B82A616446006FCD77 /* Colours.xcassets */; };
 		F620B8BD2A654F39006FCD77 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8BC2A654F39006FCD77 /* APIManager.swift */; };
 		F620B8C02A66971F006FCD77 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F620B8BF2A66971F006FCD77 /* SDWebImage */; };
+		F62D8A662A694F7E008D9C7A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D8A652A694F7E008D9C7A /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		F620B8B22A613F6A006FCD77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F620B8B82A616446006FCD77 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		F620B8BC2A654F39006FCD77 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F62D8A652A694F7E008D9C7A /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				F620B8B82A616446006FCD77 /* Colours.xcassets */,
 				F620B8AF2A613F6A006FCD77 /* LaunchScreen.storyboard */,
 				F620B8B22A613F6A006FCD77 /* Info.plist */,
+				F62D8A652A694F7E008D9C7A /* WeatherData.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F620B8BD2A654F39006FCD77 /* APIManager.swift in Sources */,
+				F62D8A662A694F7E008D9C7A /* WeatherData.swift in Sources */,
 				F620B8A92A613F69006FCD77 /* ViewController.swift in Sources */,
 				F620B8A52A613F69006FCD77 /* AppDelegate.swift in Sources */,
 				F620B8A72A613F69006FCD77 /* SceneDelegate.swift in Sources */,
