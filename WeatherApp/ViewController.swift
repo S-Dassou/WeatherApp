@@ -47,7 +47,38 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func updateWeatherCodable(lat: Double, long: Double) {
+        ApiManager.shared.getWeatherCodable(lat: lat, long: long) { weatherData in
+            if let weatherData {
+                self.weatherImageView.sd_setImage(with: weatherData.image)
+                DispatchQueue.main.async {
+                    self.locationLabel.text = weatherData.location
+                    self.weatherDescriptionLabel.text = weatherData.description
+                }
+                let measurement = Measurement(value: weatherData.temp, unit: UnitTemperature.celsius)
+                let measurementFormatter = MeasurementFormatter()
+                measurementFormatter.unitStyle = .short
+                measurementFormatter.numberFormatter.maximumFractionDigits = 0
+                measurementFormatter.unitOptions = .temperatureWithoutUnit
+                DispatchQueue.main.async {
+                    self.temperatureLabel.text = measurementFormatter.string(from: measurement)
+                }
+                DispatchQueue.main.async {
+                    self.humidityLabel.text = String(weatherData.humidity)
+                }
+            }
+        }
+    }
 }
+//
+//            print("DEBUG: weather name is \(weatherData?.name ?? "")")
+//            let icon = weatherData?.weather.first?.icon
+//            let iconString = URL(string: icon!)
+//
+//        }
+//    }
+//}
 
 
 extension ViewController: CLLocationManagerDelegate {
@@ -72,7 +103,8 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            updateWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+           // updateWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+            updateWeatherCodable(lat: location.coordinate.latitude, long: location.coordinate.longitude)
         }
     }
     
