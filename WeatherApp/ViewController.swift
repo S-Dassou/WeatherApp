@@ -49,27 +49,41 @@ class ViewController: UIViewController {
     }
     
     func updateWeatherCodable(lat: Double, long: Double) {
-        ApiManager.shared.getWeatherCodable(lat: lat, long: long) { weatherData in
-            if let weatherData {
-                self.weatherImageView.sd_setImage(with: weatherData.image)
-                DispatchQueue.main.async {
-                    self.locationLabel.text = weatherData.location
-                    self.weatherDescriptionLabel.text = weatherData.description
-                }
-                let measurement = Measurement(value: weatherData.temp, unit: UnitTemperature.celsius)
-                let measurementFormatter = MeasurementFormatter()
-                measurementFormatter.unitStyle = .short
-                measurementFormatter.numberFormatter.maximumFractionDigits = 0
-                measurementFormatter.unitOptions = .temperatureWithoutUnit
-                DispatchQueue.main.async {
-                    self.temperatureLabel.text = measurementFormatter.string(from: measurement)
-                }
-                DispatchQueue.main.async {
-                    self.humidityLabel.text = String(weatherData.humidity)
-                }
+        Task {
+            
+            do {
+                let weatherData = try await ApiManager.shared.getWeatherCodable(lat: lat, long: long)
+            }
+            catch APIError.invalidURL {
+            }
+            catch APIError.decodeFailure {
+            }
+            catch {
+                
             }
         }
     }
+//        ApiManager.shared.getWeatherCodable(lat: lat, long: long) { weatherData in
+//            if let weatherData {
+//                self.weatherImageView.sd_setImage(with: weatherData.image)
+//                DispatchQueue.main.async {
+//                    self.locationLabel.text = weatherData.location
+//                    self.weatherDescriptionLabel.text = weatherData.description
+//                }
+//                let measurement = Measurement(value: weatherData.temp, unit: UnitTemperature.celsius)
+//                let measurementFormatter = MeasurementFormatter()
+//                measurementFormatter.unitStyle = .short
+//                measurementFormatter.numberFormatter.maximumFractionDigits = 0
+//                measurementFormatter.unitOptions = .temperatureWithoutUnit
+//                DispatchQueue.main.async {
+//                    self.temperatureLabel.text = measurementFormatter.string(from: measurement)
+//                }
+//                DispatchQueue.main.async {
+//                    self.humidityLabel.text = String(weatherData.humidity)
+//                }
+//            }
+//        }
+    
 }
 //
 //            print("DEBUG: weather name is \(weatherData?.name ?? "")")

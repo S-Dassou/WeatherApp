@@ -18,6 +18,7 @@
 		F620B8C02A66971F006FCD77 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F620B8BF2A66971F006FCD77 /* SDWebImage */; };
 		F62D8A662A694F7E008D9C7A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D8A652A694F7E008D9C7A /* WeatherData.swift */; };
 		F62D8A682A6FD99B008D9C7A /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D8A672A6FD99B008D9C7A /* WeatherModel.swift */; };
+		F62D8A952A7818FC008D9C7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F62D8A942A7818FC008D9C7A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F620B8C02A66971F006FCD77 /* SDWebImage in Frameworks */,
+				F62D8A952A7818FC008D9C7A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,7 @@
 			name = WeatherApp;
 			packageProductDependencies = (
 				F620B8BF2A66971F006FCD77 /* SDWebImage */,
+				F62D8A942A7818FC008D9C7A /* Alamofire */,
 			);
 			productName = WeatherApp;
 			productReference = F620B8A12A613F69006FCD77 /* WeatherApp.app */;
@@ -130,6 +133,7 @@
 			mainGroup = F620B8982A613F69006FCD77;
 			packageReferences = (
 				F620B8BE2A66971F006FCD77 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F62D8A932A7818FC008D9C7A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F620B8A22A613F69006FCD77 /* Products */;
 			projectDirPath = "";
@@ -390,6 +394,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F62D8A932A7818FC008D9C7A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -397,6 +409,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F620B8BE2A66971F006FCD77 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		F62D8A942A7818FC008D9C7A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F62D8A932A7818FC008D9C7A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
