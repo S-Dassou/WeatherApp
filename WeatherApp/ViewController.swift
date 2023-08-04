@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     func updateWeather(lat: Double, long: Double) {
-        ApiManager.shared.getWeather(lat: lat, long: long) { weatherData in
+        ApiManager.shared.getWeatherAF(lat: lat, long: long) { weatherData in
             if let weatherData {
                 self.weatherImageView.sd_setImage(with: weatherData.image)
                 DispatchQueue.main.async {
@@ -48,21 +48,21 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateWeatherCodable(lat: Double, long: Double) {
-        Task {
-            
-            do {
-                let weatherData = try await ApiManager.shared.getWeatherCodable(lat: lat, long: long)
-            }
-            catch APIError.invalidURL {
-            }
-            catch APIError.decodeFailure {
-            }
-            catch {
-                
-            }
-        }
-    }
+//    func updateWeatherCodable(lat: Double, long: Double) {
+//        Task {
+//
+//            do {
+//                let weatherData = try await ApiManager.shared.getWeatherCodable(lat: lat, long: long)
+//            }
+//            catch APIError.invalidURL {
+//            }
+//            catch APIError.decodeFailure {
+//            }
+//            catch {
+//
+//            }
+//        }
+//    }
 //        ApiManager.shared.getWeatherCodable(lat: lat, long: long) { weatherData in
 //            if let weatherData {
 //                self.weatherImageView.sd_setImage(with: weatherData.image)
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
 //                }
 //            }
 //        }
-    
+
 }
 //
 //            print("DEBUG: weather name is \(weatherData?.name ?? "")")
@@ -117,10 +117,11 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-           // updateWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
-            updateWeatherCodable(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+            updateWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+//            updateWeatherCodable(lat: location.coordinate.latitude, long: location.coordinate.longitude)
         }
     }
+    
     
 }
 
